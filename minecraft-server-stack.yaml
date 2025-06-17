@@ -1,3 +1,5 @@
 template-file-path: minecraft-server.yml
-parameters: {}
+parameters: {
+  KeyName: minecraft-keypair
+}
 tags: {}
