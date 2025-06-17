@@ -1,4 +1,4 @@
-stackName: minecraft-server-stack-GH
+stackName: minecraft-server-stack
 template-file-path: minecraft-server.yml
 parameters: {
   KeyName: minecraft-keypair
