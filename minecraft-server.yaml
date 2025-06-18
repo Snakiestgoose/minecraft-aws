@@ -106,7 +106,7 @@ Resources:
   MinecraftEIPAssociation:
     Type: AWS::EC2::EIPAssociation
     Properties:
-      AllocationId: !GetAtt MinecraftEI.AllocationId
+      AllocationId: !GetAtt MinecraftEIP.AllocationId
       InstanceId: !Ref MinecraftInstance
           
 Outputs:
