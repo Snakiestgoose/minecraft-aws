@@ -91,9 +91,12 @@ Resources:
           cd /opt/minecraft
           java -jar fabric-installer.jar
           sed -i 's/eula=false/eula=true/' eula.txt
+
+          wget https://github.com/Snakiestgoose/minecraft-aws/blob/Snakiestgoose-patch-1/mods/TreeChop-1.19.2-fabric-0.17.6.jar -O /opt/minecraft/mods/TreeChop-1.19.2-fabric-0.17.6.jar
+          
           java -jar fabric-installer.jar
 
-          aws s3 cp s3://minecraft-mods-${AWS::AccountId}-${AWS::Region}/modfile.jar /opt/minecraft/mods/
+          #aws s3 cp s3://minecraft-mods-${AWS::AccountId}-${AWS::Region}/modfile.jar /opt/minecraft/mods/
           
 Outputs:
   InstancePublicIP:
