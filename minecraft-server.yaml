@@ -92,6 +92,8 @@ Resources:
           java -jar fabric-installer.jar
           sed -i 's/eula=false/eula=true/' eula.txt
           java -jar fabric-installer.jar
+
+          aws s3 cp s3://minecraft-mods-${AWS::AccountId}-${AWS::Region}/modfile.jar /opt/minecraft/mods/
           
 Outputs:
   InstancePublicIP:
