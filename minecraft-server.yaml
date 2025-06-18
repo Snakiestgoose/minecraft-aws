@@ -127,15 +127,15 @@ Resources:
               - Effect: Allow
                 Action: 
                   - ec2:*
-                Resource: !GetAtt MinecraftServerInstance.Arn
+                Resource: !GetAtt MinecraftInstance.Arn
               - Effect: Allow
                 Action: 
                   - s3:*
-                Resource: !GetAtt MinecraftBucket.Arn
+                Resource: !GetAtt MinecraftS3Bucket.Arn
               - Effect: Allow
                 Action:
                   - s3:*
-                Resource: !Sub "${MinecraftBucket.Arn}/*"
+                Resource: !Sub "${MinecraftS3Bucket.Arn}/*"
 
   MinecraftLambdaFunction:
     Type: AWS::Lambda::Function
