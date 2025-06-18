@@ -127,7 +127,7 @@ Resources:
               - Effect: Allow
                 Action: 
                   - ec2:*
-                Resource: !GetAtt MinecraftInstance.Arn
+                Resource: "*"
               - Effect: Allow
                 Action: 
                   - s3:*
