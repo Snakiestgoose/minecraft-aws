@@ -69,6 +69,7 @@ Resources:
         Fn::Base64: !Sub |
           #!/bin/bash
           # Install Java 21 (Azul Zulu)
+          yum install java-17-amazon-corretto
           wget -qO - https://repos.azul.com/azul-repo.key | gpg --dearmor -o /usr/share/keyrings/azul.gpg
           echo "deb [signed-by=/usr/share/keyrings/azul.gpg] https://repos.azul.com/zulu/deb stable main" > /etc/apt/sources.list.d/zulu.list
           apt-get update
@@ -89,13 +90,9 @@ Resources:
           # Run Fabric installer
           cd /opt/minecraft
           java -jar fabric-installer.jar
+          sed -i 's/eula=false/eula=true/' eula.txt
+          java -jar fabric-installer.jar
           
-          
-
-
-
-
-
 Outputs:
   InstancePublicIP:
     Description: Public IP of Minecraft server
