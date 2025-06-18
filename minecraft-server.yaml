@@ -8,6 +8,11 @@ Parameters:
 
 Resources:
 
+  MinecraftEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+
   MinecraftSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
@@ -97,6 +102,12 @@ Resources:
           java -jar fabric-installer.jar
 
           #aws s3 cp s3://minecraft-mods-${AWS::AccountId}-${AWS::Region}/modfile.jar /opt/minecraft/mods/
+
+  MinecraftEIPAssociation:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      AllocationId: !GetAtt MinecraftEI.AllocationId
+      InstanceId: !Ref MinecraftInstance
           
 Outputs:
   InstancePublicIP:
