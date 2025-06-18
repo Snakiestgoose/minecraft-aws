@@ -64,7 +64,7 @@ Resources:
       SecurityGroups:
         - !Ref MinecraftSecurityGroup
       IamInstanceProfile: !Ref MinecraftInstanceProfile
-      ImageId: ami-084568db4383264d4 
+      ImageId: ami-0fe972392d04329e1 
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash
