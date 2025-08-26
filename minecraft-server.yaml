@@ -90,7 +90,7 @@ Resources:
           mkdir -p /opt/minecraft/
 
           # Download Fabric installer (you can automate running it later)
-          wget https://meta.fabricmc.net/v2/versions/loader/1.19.1/0.14.21/1.0.3/server/jar -O /opt/minecraft/fabric-installer.jar
+          wget https://meta.fabricmc.net/v2/versions/loader/1.20.1/0.16.13/1.0.3/server/jar -O /opt/minecraft/fabric-installer.jar
 
           # Run Fabric installer
           cd /opt/minecraft
@@ -102,6 +102,7 @@ Resources:
 
           #wget https://github.com/Snakiestgoose/minecraft-aws/blob/Snakiestgoose-patch-1/mods/TreeChop-1.19.2-fabric-0.17.6.jar -O /opt/minecraft/mods/TreeChop-1.19.2-fabric-0.17.6.jar
           #aws s3 cp s3://minecraft-mods-${AWS::AccountId}-${AWS::Region}/modfile.jar /opt/minecraft/mods/
+          aws s3 cp s3://minecraft-mods-${AWS::AccountId}-${AWS::Region}/mods /opt/minecraft/mods --recursive
 
   MinecraftEIPAssociation:
     Type: AWS::EC2::EIPAssociation
