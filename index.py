@@ -21,7 +21,7 @@ def handler(event, context):
 
     # Run the command on the EC2 instance
     try:
-        run_command_on_ec2(instance_id, region, command)
+        return run_command_on_ec2(instance_id, region, command)
     except Exception as e:
         print(f"Error running command on EC2 instance: {e}")
         raise e
