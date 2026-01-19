@@ -35,6 +35,11 @@ def run_command_on_ec2(instance_id, region, command='echo Hello from Lambda!'):
             ec2.start_instances(InstanceIds=[instance_id])
         elif (command == 'stopInstance'):
             ec2.stop_instances(InstanceIds=[instance_id])
+        
+        # Wait for the instance to change state
+        time.sleep(15)
+
+        return ec2.describe_instance_status(InstanceIds=[instance_id])
     else:
         # create an SSM command to run a bash command on the EC2 instance
         ssm_client = boto3.client('ssm', region_name=region)
